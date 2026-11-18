@@ -102,7 +102,8 @@
         g.map(function (e) {
           return '<div class="pitem" id="' + esc(e.id) + '"><span class="t">' + titleOf(e) + "</span>" +
             (e.speaker ? '<span class="who">' + esc(e.speaker) + (e.affil ? " <i>" + esc(e.affil) + "</i>" : "") + "</span>" : "") +
-            '<div class="meta">' + (isUpcoming(e) ? '<span class="chip up">예정</span>' : "") + "<time>" + fmtDate(e) + "</time></div></div>";
+            '<div class="meta">' + (e.video ? '<a class="chip vid" href="https://www.youtube.com/watch?v=' + esc(e.video) + '" target="_blank" rel="noopener">▶ 영상</a>' : "") +
+            (isUpcoming(e) ? '<span class="chip up">예정</span>' : "") + "<time>" + fmtDate(e) + "</time></div></div>";
         }).join("") + "</div></li>";
     }).join("") + "</ul>";
   }
